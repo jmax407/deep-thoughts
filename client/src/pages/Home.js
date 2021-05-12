@@ -1,10 +1,11 @@
 import React from 'react';
 import ThoughtList from '../components/ThoughtList';
+import ThoughtForm from '../components/ThoughtForm';
 import FriendList from '../components/FriendList';
+
 import Auth from '../utils/auth';
 import { useQuery } from '@apollo/react-hooks';
 import { QUERY_THOUGHTS, QUERY_ME_BASIC } from '../utils/queries';
-import ThoughtForm from '../components/ThoughtForm';
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_THOUGHTS);
@@ -16,7 +17,7 @@ const Home = () => {
   return (
     <main>
       <div className="flex-row justify-space-between">
-          {loggedIn && (
+        {loggedIn && (
           <div className="col-12 mb-3">
             <ThoughtForm />
           </div>
